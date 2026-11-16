@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" id="htmlRoot" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FA DealFlow — AI Influencer CRM & Fair-Rate Engine</title>
+  <title id="pageTitle">FA DealFlow — AI Influencer CRM & Fair-Rate Engine</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; background-color: #0B0F19; color: #F8FAFC; }
+    body.lang-ar { font-family: 'Tajawal', sans-serif; }
     .glass-card { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); backdrop-filter: blur(12px); }
     .gradient-text { background: linear-gradient(135deg, #60A5FA 0%, #818CF8 50%, #34D399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   </style>
@@ -22,33 +23,39 @@
         <span class="font-bold text-lg tracking-tight text-white">FA DealFlow</span>
       </div>
       <div class="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
-        <a href="#workspace" class="hover:text-white transition">Deal Workspace</a>
-        <a href="#pricing" class="hover:text-white transition">Pricing</a>
-        <a href="#faq" class="hover:text-white transition">FAQ</a>
+        <a href="#workspace" class="hover:text-white transition" data-i18n="navWorkspace">Deal Workspace</a>
+        <a href="#pricing" class="hover:text-white transition" data-i18n="navPricing">Pricing</a>
+        <a href="#faq" class="hover:text-white transition" data-i18n="navFaq">FAQ</a>
       </div>
-      <a href="#pricing" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md shadow-indigo-600/20">
-        Get Pro Access
-      </a>
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher Button -->
+        <button onclick="toggleLanguage()" id="langBtn" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-bold px-3 py-1.5 rounded-lg transition">
+          العربية 🇸🇦
+        </button>
+        <a href="#pricing" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md shadow-indigo-600/20" data-i18n="getPro">
+          Get Pro Access
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <header class="max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-12 text-center">
     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-6">
-      <span>⚡ Complete Influencer Decision & CRM Workflow</span>
+      <span data-i18n="heroBadge">⚡ Complete Influencer Decision & CRM Workflow</span>
     </div>
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-      Stop Overpaying Creators. <br class="hidden sm:block" />
-      <span class="gradient-text">Price, Pitch & Track Deals</span> in Seconds.
+      <span data-i18n="heroTitle1">Stop Overpaying Creators.</span> <br class="hidden sm:block" />
+      <span class="gradient-text" data-i18n="heroTitle2">Price, Pitch & Track Deals</span> <span data-i18n="heroTitle3">in Seconds.</span>
     </h1>
-    <p class="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
+    <p class="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed mb-8" data-i18n="heroDesc">
       More than an AI writer—an all-in-one deal engine for smart e-commerce brands. Audit creator views to prevent fake-follower overpricing, generate tailored outreach pitches, and manage follow-ups in one workflow.
     </p>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
       <a href="#workspace" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-base transition shadow-lg shadow-indigo-600/30">
-        Try Free Workspace (<span id="heroCredits">3</span> Credits)
+        <span data-i18n="tryFreeBtn">Try Free Workspace</span> (<span id="heroCredits">3</span> <span data-i18n="creditsText">Credits</span>)
       </a>
-      <a href="#pricing" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-base transition">
+      <a href="#pricing" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-base transition" data-i18n="viewPlansBtn">
         View Plans
       </a>
     </div>
@@ -63,7 +70,7 @@
         <div>
           <div class="flex items-center justify-between mb-5">
             <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <span>✍️</span> AI Pitch & Negotiation Engine
+              <span>✍️</span> <span data-i18n="pitchEngineTitle">AI Pitch & Negotiation Engine</span>
             </h2>
             <span id="creditBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
               3 Free Tries Left
@@ -72,26 +79,26 @@
 
           <div class="space-y-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Your Brand / Product Name</label>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="labelBrand">Your Brand / Product Name</label>
               <input id="brandInput" type="text" placeholder="e.g., Aura Perfumes" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Creator Handle (@)</label>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="labelHandle">Creator Handle (@)</label>
                 <input id="handleInput" type="text" placeholder="e.g., @sarah.style" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Deal Structure</label>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5" data-i18n="labelDealType">Deal Structure</label>
                 <select id="dealTypeInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500">
-                  <option value="gifted">Free Product + Affiliate %</option>
-                  <option value="paid">Paid Flat-Rate Sponsorship</option>
-                  <option value="hybrid">Hybrid (Low Base + Commission)</option>
+                  <option value="gifted" data-i18n="deal1">Free Product + Affiliate %</option>
+                  <option value="paid" data-i18n="deal2">Paid Flat-Rate Sponsorship</option>
+                  <option value="hybrid" data-i18n="deal3">Hybrid (Low Base + Commission)</option>
                 </select>
               </div>
             </div>
 
-            <button onclick="generatePitch()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-md shadow-indigo-600/25">
+            <button onclick="generatePitch()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-md shadow-indigo-600/25" data-i18n="generateBtn">
               ⚡ Generate Pitch & Add to CRM
             </button>
           </div>
@@ -99,8 +106,8 @@
           <!-- Output Box -->
           <div id="pitchOutputContainer" class="hidden mt-5 p-4 rounded-xl bg-slate-900/95 border border-slate-700/80">
             <div class="flex items-center justify-between mb-2">
-              <span class="text-xs font-semibold text-indigo-400">Ready-to-Send DM Script</span>
-              <button onclick="copyPitch()" id="copyBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-2.5 py-1 rounded-md transition">
+              <span class="text-xs font-semibold text-indigo-400" data-i18n="scriptTitle">Ready-to-Send DM Script</span>
+              <button onclick="copyPitch()" id="copyBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-2.5 py-1 rounded-md transition" data-i18n="copyBtn">
                 Copy Text
               </button>
             </div>
@@ -108,7 +115,7 @@
           </div>
         </div>
 
-        <p class="text-xs text-slate-500 mt-5 pt-3 border-t border-slate-800/80">
+        <p class="text-xs text-slate-500 mt-5 pt-3 border-t border-slate-800/80" data-i18n="pitchTip">
           💡 Tip: Every generated pitch automatically logs the creator into your Mini-CRM tracker on the right.
         </p>
       </section>
@@ -116,22 +123,22 @@
       <!-- Right Column: Fair-Rate Engine + Mini CRM (6 cols) -->
       <div class="lg:col-span-6 space-y-6">
 
-        <!-- Fair-Rate Calculator (Views + Platform + Format) -->
+        <!-- Fair-Rate Calculator (Advanced 12-Posts + ER Formula) -->
         <section class="glass-card rounded-2xl p-6">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <span>📊</span> Data-Backed Fair-Rate Engine
+              <span>📊</span> <span data-i18n="calcEngineTitle">Data-Backed Fair-Rate Engine</span>
             </h2>
-            <span class="text-xs text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md">CPM Audit</span>
+            <span class="text-xs text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md">CPM & ER Audit</span>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Avg. Views (30d)</label>
+              <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="labelViews">Avg. Views (Last 12)</label>
               <input id="viewsInput" type="number" placeholder="25000" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Platform</label>
+              <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="labelPlatform">Platform</label>
               <select id="platformInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
                 <option value="tiktok">TikTok</option>
                 <option value="instagram">Instagram</option>
@@ -139,24 +146,26 @@
               </select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 mb-1">Deliverable</label>
+              <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="labelFormat">Format & Niche</label>
               <select id="formatInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
-                <option value="video">Dedicated Video / Reel</option>
-                <option value="story">24h Story / Mention</option>
+                <option value="video" data-i18n="fmtVideo">Dedicated Video (Standard)</option>
+                <option value="story" data-i18n="fmtStory">24h Story / Mention</option>
+                <option value="beauty" data-i18n="fmtBeauty">Beauty / Skincare Niche</option>
+                <option value="tech" data-i18n="fmtTech">Tech / Business Niche</option>
               </select>
             </div>
           </div>
 
-          <button onclick="calculateFairRate()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition shadow-md shadow-emerald-600/20">
+          <button onclick="calculateFairRate()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition shadow-md shadow-emerald-600/20" data-i18n="calcBtn">
             Calculate Transparent Fair Rate
           </button>
 
           <!-- Rate Result & Transparent Breakdown -->
           <div id="rateResultBox" class="mt-4 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
-            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Recommended Max Offer Range</div>
+            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1" data-i18n="recommendedRange">Recommended Max Offer Range</div>
             <div id="rateRangeText" class="text-2xl sm:text-3xl font-extrabold text-emerald-400">$375 – $500</div>
-            <div id="rateExplanation" class="text-xs text-slate-400 mt-2 leading-relaxed">
-              Based on 25,000 real views × $15–$20 TikTok Video CPM benchmark (protects you from paying for inactive followers).
+            <div id="rateExplanation" class="text-xs text-slate-400 mt-2 leading-relaxed" data-i18n="defaultExplanation">
+              Based on last 12 posts average views × Platform CPM & ER Multiplier benchmark (protects budget from fake followers).
             </div>
           </div>
         </section>
@@ -165,25 +174,24 @@
         <section class="glass-card rounded-2xl p-6">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-bold text-white flex items-center gap-2">
-              <span>🗂️</span> Active Deal Pipeline (CRM)
+              <span>🗂️</span> <span data-i18n="crmTitle">Active Deal Pipeline (CRM)</span>
             </h2>
             <span id="dealCountBadge" class="text-xs text-indigo-300 bg-indigo-500/15 px-2.5 py-1 rounded-full font-medium">1 Active</span>
           </div>
 
           <div id="crmList" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
-            <!-- Sample Initial Item -->
             <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-slate-900/90 border border-slate-800">
               <div>
-                <div class="text-sm font-bold text-white">@maya.glow <span class="text-xs font-normal text-slate-400">(Sample)</span></div>
-                <div class="text-xs text-slate-400">Est. Fair Rate: $400</div>
+                <div class="text-sm font-bold text-white">@maya.glow <span class="text-xs font-normal text-slate-400" data-i18n="sampleTag">(Sample)</span></div>
+                <div class="text-xs text-slate-400"><span data-i18n="estRateText">Est. Fair Rate:</span> $400</div>
               </div>
               <div class="flex items-center gap-2">
                 <select onchange="updateDealStatus(this)" class="bg-slate-800 border border-slate-700 text-xs text-amber-300 rounded-lg px-2 py-1 focus:outline-none">
-                  <option value="Contacted" selected>Contacted</option>
-                  <option value="Negotiating">Negotiating</option>
-                  <option value="Closed Won">Closed Won</option>
+                  <option value="Contacted" data-i18n="statusContacted">Contacted</option>
+                  <option value="Negotiating" data-i18n="statusNeg">Negotiating</option>
+                  <option value="Closed Won" data-i18n="statusClosed">Closed Won</option>
                 </select>
-                <button onclick="generateFollowUp('@maya.glow')" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition">
+                <button onclick="generateFollowUp('@maya.glow')" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition" data-i18n="followUpBtn">
                   Follow-Up
                 </button>
               </div>
@@ -198,8 +206,8 @@
   <!-- Pricing Section -->
   <section id="pricing" class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-extrabold text-white mb-3">Simple, ROI-Focused Pricing</h2>
-      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-white mb-3" data-i18n="pricingTitle">Simple, ROI-Focused Pricing</h2>
+      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto" data-i18n="pricingDesc">
         Enterprise tools charge $300+/mo. Save yourself from overpaying just one influencer and FA DealFlow pays for itself 10x over.
       </p>
     </div>
@@ -208,44 +216,44 @@
       <!-- Starter Plan -->
       <div class="glass-card rounded-2xl p-8 flex flex-col justify-between">
         <div>
-          <div class="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">Brand Starter</div>
+          <div class="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2" data-i18n="plan1Title">Brand Starter</div>
           <div class="flex items-baseline gap-1 mb-4">
             <span class="text-4xl font-extrabold text-white">$39</span>
-            <span class="text-slate-400 text-sm">/ month</span>
+            <span class="text-slate-400 text-sm" data-i18n="perMonth">/ month</span>
           </div>
-          <p class="text-slate-400 text-sm mb-6">Everything a growing e-commerce store needs to run profitable creator campaigns.</p>
+          <p class="text-slate-400 text-sm mb-6" data-i18n="plan1Desc">Everything a growing e-commerce store needs to run profitable creator campaigns.</p>
           <ul class="space-y-3 text-sm text-slate-300 mb-8">
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited AI Pitch & Follow-Up Generation</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited CPM Fair-Rate Audits</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Track up to 100 Active Creator Deals</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Negotiation Counter-Offer Scripts</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p1_1">Unlimited AI Pitch & Follow-Up Generation</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p1_2">Advanced CPM & ER Fair-Rate Audits</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p1_3">Track up to 100 Active Creator Deals</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p1_4">Negotiation Counter-Offer Scripts</span></li>
           </ul>
         </div>
-        <button onclick="openCheckoutModal('Brand Starter ($39/mo)')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm transition">
+        <button onclick="openCheckoutModal('Brand Starter ($39/mo)')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm transition" data-i18n="btnPlan1">
           Start with Brand Starter
         </button>
       </div>
 
       <!-- Agency / Pro Plan -->
       <div class="glass-card rounded-2xl p-8 border-indigo-500/60 relative flex flex-col justify-between shadow-xl shadow-indigo-950/30">
-        <div class="absolute -top-3 right-6 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+        <div class="absolute -top-3 right-6 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide" data-i18n="mostPopular">
           Most Popular
         </div>
         <div>
-          <div class="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-2">Growth & Agency Pro</div>
+          <div class="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-2" data-i18n="plan2Title">Growth & Agency Pro</div>
           <div class="flex items-baseline gap-1 mb-4">
             <span class="text-4xl font-extrabold text-white">$59</span>
-            <span class="text-slate-400 text-sm">/ month</span>
+            <span class="text-slate-400 text-sm" data-i18n="perMonth">/ month</span>
           </div>
-          <p class="text-slate-400 text-sm mb-6">Built for high-volume brands and agencies managing multiple product lines.</p>
+          <p class="text-slate-400 text-sm mb-6" data-i18n="plan2Desc">Built for high-volume brands and agencies managing multiple product lines.</p>
           <ul class="space-y-3 text-sm text-slate-300 mb-8">
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Everything in Brand Starter</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited CRM Pipeline Storage</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Multi-Brand Campaign Presets</li>
-            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Priority Direct Founder Support</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p2_1">Everything in Brand Starter</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p2_2">Unlimited CRM Pipeline Storage</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p2_3">Multi-Brand Campaign Presets</span></li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> <span data-i18n="p2_4">Priority Direct Founder Support</span></li>
           </ul>
         </div>
-        <button onclick="openCheckoutModal('Growth & Agency Pro ($59/mo)')" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30">
+        <button onclick="openCheckoutModal('Growth & Agency Pro ($59/mo)')" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30" data-i18n="btnPlan2">
           Upgrade to Growth Pro
         </button>
       </div>
@@ -254,23 +262,23 @@
 
   <!-- FAQ Section -->
   <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-800/80">
-    <h2 class="text-2xl font-extrabold text-white text-center mb-8">Frequently Asked Questions</h2>
+    <h2 class="text-2xl font-extrabold text-white text-center mb-8" data-i18n="faqTitle">Frequently Asked Questions</h2>
     <div class="space-y-4">
       <div class="glass-card rounded-xl p-5">
-        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">How is this different from just using ChatGPT?</h3>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5" data-i18n="faq1_q">How is this different from just using ChatGPT?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq1_a">
           ChatGPT doesn't audit creator views against live platform CPM benchmarks or manage your outreach pipeline. FA DealFlow combines rate protection, tailored negotiation psychology, and deal-stage tracking in one fast workflow built specifically for e-commerce outreach.
         </p>
       </div>
       <div class="glass-card rounded-xl p-5">
-        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">How do you calculate the creator's Fair Rate?</h3>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-          Follower counts can easily be faked. Our engine uses the creator's real 30-day average views, platform benchmark CPMs (TikTok, Instagram, YouTube), and deliverable format (Dedicated Video vs. Story) to give you an objective maximum offer range.
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5" data-i18n="faq2_q">How do you calculate the creator's Fair Rate?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq2_a">
+          Our advanced engine uses the creator's average views across the last 12 posts, platform CPM benchmarks, and engagement multipliers (ER) to protect you from paying for fake or inactive followers.
         </p>
       </div>
       <div class="glass-card rounded-xl p-5">
-        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">Can I cancel my subscription anytime?</h3>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5" data-i18n="faq3_q">Can I cancel my subscription anytime?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="faq3_a">
           Yes, 100%. There are no long-term contracts—you can cancel or switch plans with a single click whenever you want.
         </p>
       </div>
@@ -280,97 +288,295 @@
   <!-- Footer & Support -->
   <footer class="border-t border-slate-800/80 py-8 mt-8">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-      <div>© 2026 FA DealFlow by Mohamed FA. All rights reserved.</div>
+      <div data-i18n="footerRights">© 2026 FA DealFlow by Mohamed FA. All rights reserved.</div>
       <div class="flex items-center gap-4">
-        <a href="mailto:support@fadealflow.com?subject=FA%20DealFlow%20Support" class="text-indigo-400 hover:text-indigo-300 font-semibold transition">
+        <a href="mailto:support@fadealflow.com?subject=FA%20DealFlow%20Support" class="text-indigo-400 hover:text-indigo-300 font-semibold transition" data-i18n="footerSupport">
           💬 Need Help? Contact Support
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Early Access Checkout Modal (Placeholder until Payment Link is Ready) -->
+  <!-- Early Access Checkout Modal -->
   <div id="checkoutModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="glass-card max-w-md w-full rounded-2xl p-6 text-center border-indigo-500/50">
       <div class="w-12 h-12 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 text-xl">🚀</div>
       <h3 id="modalPlanTitle" class="text-lg font-bold text-white mb-2">Brand Starter ($39/mo)</h3>
-      <p class="text-slate-300 text-sm mb-5 leading-relaxed">
+      <p class="text-slate-300 text-sm mb-5 leading-relaxed" data-i18n="modalDesc">
         We are currently onboarding our first batch of founding brands. Click below to request instant Pro activation via email and lock in early-bird pricing.
       </p>
       <div class="flex flex-col gap-2.5">
-        <a id="modalMailLink" href="mailto:support@fadealflow.com?subject=Activate%20Pro%20Access" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition">
+        <a id="modalMailLink" href="mailto:support@fadealflow.com?subject=Activate%20Pro%20Access" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition" data-i18n="modalBtn1">
           Request Instant Activation
         </a>
-        <button onclick="closeCheckoutModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition">
+        <button onclick="closeCheckoutModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition" data-i18n="modalBtn2">
           Close Window
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Interactive Logic -->
+  <!-- Interactive Logic & Translations -->
   <script>
+    let currentLang = localStorage.getItem('fa_lang') || 'en';
     let credits = parseInt(localStorage.getItem('fa_credits') || '3');
     let lastCalculatedRate = '$375 – $500';
     let dealCounter = 1;
 
+    const translations = {
+      en: {
+        pageTitle: "FA DealFlow — AI Influencer CRM & Fair-Rate Engine",
+        navWorkspace: "Deal Workspace",
+        navPricing: "Pricing",
+        navFaq: "FAQ",
+        getPro: "Get Pro Access",
+        heroBadge: "⚡ Complete Influencer Decision & CRM Workflow",
+        heroTitle1: "Stop Overpaying Creators.",
+        heroTitle2: "Price, Pitch & Track Deals",
+        heroTitle3: "in Seconds.",
+        heroDesc: "More than an AI writer—an all-in-one deal engine for smart e-commerce brands. Audit creator views to prevent fake-follower overpricing, generate tailored outreach pitches, and manage follow-ups in one workflow.",
+        tryFreeBtn: "Try Free Workspace",
+        creditsText: "Credits",
+        viewPlansBtn: "View Plans",
+        pitchEngineTitle: "AI Pitch & Negotiation Engine",
+        labelBrand: "Your Brand / Product Name",
+        labelHandle: "Creator Handle (@)",
+        labelDealType: "Deal Structure",
+        deal1: "Free Product + Affiliate %",
+        deal2: "Paid Flat-Rate Sponsorship",
+        deal3: "Hybrid (Low Base + Commission)",
+        generateBtn: "⚡ Generate Pitch & Add to CRM",
+        scriptTitle: "Ready-to-Send DM Script",
+        copyBtn: "Copy Text",
+        pitchTip: "💡 Tip: Every generated pitch automatically logs the creator into your Mini-CRM tracker on the right.",
+        calcEngineTitle: "Data-Backed Fair-Rate Engine",
+        labelViews: "Avg. Views (Last 12 Posts)",
+        labelPlatform: "Platform",
+        labelFormat: "Format & Niche",
+        fmtVideo: "Dedicated Video (Standard)",
+        fmtStory: "24h Story / Mention",
+        fmtBeauty: "Beauty / Skincare Niche",
+        fmtTech: "Tech / Business Niche",
+        calcBtn: "Calculate Transparent Fair Rate",
+        recommendedRange: "Recommended Max Offer Range",
+        defaultExplanation: "Based on last 12 posts average views × Platform CPM & ER Multiplier benchmark (protects budget from fake followers).",
+        crmTitle: "Active Deal Pipeline (CRM)",
+        sampleTag: "(Sample)",
+        estRateText: "Est. Fair Rate:",
+        statusContacted: "Contacted",
+        statusNeg: "Negotiating",
+        statusClosed: "Closed Won",
+        followUpBtn: "Follow-Up",
+        pricingTitle: "Simple, ROI-Focused Pricing",
+        pricingDesc: "Enterprise tools charge $300+/mo. Save yourself from overpaying just one influencer and FA DealFlow pays for itself 10x over.",
+        plan1Title: "Brand Starter",
+        perMonth: "/ month",
+        plan1Desc: "Everything a growing e-commerce store needs to run profitable creator campaigns.",
+        p1_1: "Unlimited AI Pitch & Follow-Up Generation",
+        p1_2: "Advanced CPM & ER Fair-Rate Audits",
+        p1_3: "Track up to 100 Active Creator Deals",
+        p1_4: "Negotiation Counter-Offer Scripts",
+        btnPlan1: "Start with Brand Starter",
+        mostPopular: "Most Popular",
+        plan2Title: "Growth & Agency Pro",
+        plan2Desc: "Built for high-volume brands and agencies managing multiple product lines.",
+        p2_1: "Everything in Brand Starter",
+        p2_2: "Unlimited CRM Pipeline Storage",
+        p2_3: "Multi-Brand Campaign Presets",
+        p2_4: "Priority Direct Founder Support",
+        btnPlan2: "Upgrade to Growth Pro",
+        faqTitle: "Frequently Asked Questions",
+        faq1_q: "How is this different from just using ChatGPT?",
+        faq1_a: "ChatGPT doesn't audit creator views against live platform CPM benchmarks or manage your outreach pipeline. FA DealFlow combines rate protection, tailored negotiation psychology, and deal-stage tracking in one fast workflow built specifically for e-commerce outreach.",
+        faq2_q: "How do you calculate the creator's Fair Rate?",
+        faq2_a: "Our advanced engine uses the creator's average views across the last 12 posts, platform CPM benchmarks, and engagement multipliers (ER) to protect you from paying for fake or inactive followers.",
+        faq3_q: "Can I cancel my subscription anytime?",
+        faq3_a: "Yes, 100%. There are no long-term contracts—you can cancel or switch plans with a single click whenever you want.",
+        footerRights: "© 2026 FA DealFlow by Mohamed FA. All rights reserved.",
+        footerSupport: "💬 Need Help? Contact Support",
+        modalDesc: "We are currently onboarding our first batch of founding brands. Click below to request instant Pro activation via email and lock in early-bird pricing.",
+        modalBtn1: "Request Instant Activation",
+        modalBtn2: "Close Window"
+      },
+      ar: {
+        pageTitle: "FA DealFlow — نظام إدارة صفقات المؤثرين وحاسبة التسعير العادل",
+        navWorkspace: "منصة العمل",
+        navPricing: "الأسئلة والأسعار",
+        navFaq: "الأسئلة الشائعة",
+        getPro: "احصل على النسخة الاحترافية",
+        heroBadge: "⚡ نظام متكامل لإدارة قرارات وصفقات المؤثرين",
+        heroTitle1: "توقف عن الدفع الزائد للمؤثرين.",
+        heroTitle2: "احسب السعر، تفاوض وتتبع صفقاتك",
+        heroTitle3: "في ثوانٍ معدودة.",
+        heroDesc: "أكثر من مجرد أداة ذكاء اصطناعي كتابية—محرك صفقات متكامل للمتاجر الذكية. دقق مشاهدات المؤثرين لحماية ميزانيتك، أنشئ رسائل تواصل احترافية، وتابع مفاوضاتك في مكان واحد.",
+        tryFreeBtn: "جرب النظام مجاناً",
+        creditsText: "محاولات مجانية",
+        viewPlansBtn: "عرض الخطط",
+        pitchEngineTitle: "محرك رسائل التفاوض والذكاء الاصطناعي",
+        labelBrand: "اسم متجرك أو علامتك التجارية",
+        labelHandle: "حساب المؤثر (@)",
+        labelDealType: "هيكلة الصفقة",
+        deal1: "منتج مجاني + نسبة أرباح (Affiliate)",
+        deal2: "رعاية مدفوعة ثابتة",
+        deal3: "هجين (مبلغ أساسي منخفض + عمولة)",
+        generateBtn: "⚡ توليد رسالة التفاوض وإضافتها للـ CRM",
+        scriptTitle: "رسالة جاهزة للإرسال (DM Script)",
+        copyBtn: "نسخ النص",
+        pitchTip: "💡 نصيحة: كل رسالة تولدها يتم تسجيلها تلقائياً في جدول تتبع الصفقات على اليمين.",
+        calcEngineTitle: "حاسبة السعر العادل المبنية على البيانات (CPM & ER)",
+        labelViews: "متوسط المشاهدات (آخر 12 منشور)",
+        labelPlatform: "المنصة",
+        labelFormat: "نوع المحتوى والتخصص",
+        fmtVideo: "فيديو مخصص (فيديو رئيسي)",
+        fmtStory: "ستوري 24 ساعة / إشارة",
+        fmtBeauty: "تخصص التجميل والعناية",
+        fmtTech: "تخصص التقنية والأعمال",
+        calcBtn: "احسب السعر العادل بشفافية",
+        recommendedRange: "النطاق المقترح للحد الأقصى للعرض",
+        defaultExplanation: "مبني على متوسط مشاهدات آخر 12 منشور × معيار الـ CPM ومعامل التفاعل الحقيقي (يحمي ميزانيتك من المتابعين الوهميين).",
+        crmTitle: "سجل الصفقات النشطة (CRM Pipeline)",
+        sampleTag: "(نموذج)",
+        estRateText: "السعر العادل المقدر:",
+        statusContacted: "تم التواصل",
+        statusNeg: "قيد التفاوض",
+        statusClosed: "تم الاتفاق بنجاح",
+        followUpBtn: "متابعة",
+        pricingTitle: "أسعار بسيطة مركزة على العائد (ROI)",
+        pricingDesc: "المنصات الكبرى تكلف 300$+ شهرياً. وفّر على نفسك الدفع الزائد لمؤثر واحد وستسترد قيمة اشتراكك أضعافاً مضاعفة.",
+        plan1Title: "بداية المتجر (Starter)",
+        perMonth: "/ شهرياً",
+        plan1Desc: "كل ما يحتاجه المتجر الناشئ لإدارة حملات مؤثرين مربحة.",
+        p1_1: "توليد غير محدود لرسائل التفاوض والمتابعة",
+        p1_2: "تدقيق متقدم للـ CPM ومعامل التفاعل",
+        p1_3: "تتبع ما يصل إلى 100 صفقة مؤثر نشطة",
+        p1_4: "نصوص رسائل العروض المضادة",
+        btnPlan1: "ابدأ مع خطة البداية",
+        mostPopular: "الأكثر طلباً",
+        plan2Title: "النمو والوكالات (Pro)",
+        plan2Desc: "مصممة للمتاجر الكبرى والوكالات التي تدير عدة خطوط منتجات.",
+        p2_1: "كل مميزات خطة البداية",
+        p2_2: "تخزين غير محدود لصفقات الـ CRM",
+        p2_3: "قوالب حملات متعددة العلامات التجارية",
+        p2_4: "دعم مباشر أولوية خاصة من المؤسس",
+        btnPlan2: "الترقية لخطة النمو Pro",
+        faqTitle: "الأسئلة الشائعة",
+        faq1_q: "ما الفرق بين هذه الأداة واستخدام ChatGPT مباشرة؟",
+        faq1_a: "ChatGPT لا يدقق مشاهدات المؤثرين ضد معايير الـ CPM الحقيقية ولا يدير جدول صفقاتك. تجمع FA DealFlow بين حماية الميزانية، سيكولوجية التفاوض، وتتبع مراحل الصفقات في سير عمل واحد مصمم خصيصاً للمتاجر الإلكترونية.",
+        faq2_q: "كيف تحسبون السعر العادل للمؤثر؟",
+        faq2_a: "نظامنا المتقدم يستخدم متوسط مشاهدات المؤثر في آخر 12 منشوراً، معايير الـ CPM للمنصات، ومعاملات التفاعل (ER) لحمايتك من دفع أموال لمتابعين وهميين أو غير متفاعلين.",
+        faq3_q: "هل يمكنني إلغاء اشتراكي في أي وقت؟",
+        faq3_a: "نعم، 100%. لا توجد عقود طويلة الأجل — يمكنك الإلغاء أو التبديل بضغطة زر واحدة متى شئت.",
+        footerRights: "© 2026 FA DealFlow بواسطة Mohamed FA. جميع الحقوق محفوظة.",
+        footerSupport: "💬 تحتاج مساعدة؟ تواصل مع الدعم",
+        modalDesc: "نحن حالياً نستقبل الدفعة الأولى من المتاجر المؤسسة للمنصة. اضغط أدناه لطلب التفعيل الفوري عبر البريد وتثبيت السعر المخفض.",
+        modalBtn1: "طلب التفعيل الفوري",
+        modalBtn2: "إغلاق النافذة"
+      }
+    };
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('fa_lang', lang);
+      const t = translations[lang];
+
+      document.getElementById('htmlRoot').setAttribute('lang', lang);
+      document.getElementById('htmlRoot').setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+      if(lang === 'ar') {
+        document.body.classList.add('lang-ar');
+        document.getElementById('langBtn').innerText = "English 🇺🇸";
+      } else {
+        document.body.classList.remove('lang-ar');
+        document.getElementById('langBtn').innerText = "العربية 🇸🇦";
+      }
+
+      // Translate all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(t[key]) el.innerText = t[key];
+      });
+
+      document.getElementById('pageTitle').innerText = t.pageTitle;
+      updateCreditUI();
+    }
+
+    function toggleLanguage() {
+      applyLanguage(currentLang === 'en' ? 'ar' : 'en');
+    }
+
+    applyLanguage(currentLang);
+
     function updateCreditUI() {
       document.getElementById('heroCredits').innerText = credits;
+      const t = translations[currentLang];
       const badge = document.getElementById('creditBadge');
       if (credits > 0) {
-        badge.innerText = `${credits} Free ${credits === 1 ? 'Try' : 'Tries'} Left`;
+        badge.innerText = `${credits} ${t.creditsText} ${currentLang === 'ar' ? 'مبقية' : 'Left'}`;
       } else {
-        badge.innerText = '0 Free Tries Left';
+        badge.innerText = currentLang === 'ar' ? 'انتهت المحاولات المجانية' : '0 Free Tries Left';
         badge.className = 'text-xs font-semibold px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30';
       }
     }
-    updateCreditUI();
 
     function calculateFairRate() {
       const views = parseFloat(document.getElementById('viewsInput').value) || 25000;
       const platform = document.getElementById('platformInput').value;
       const format = document.getElementById('formatInput').value;
 
-      // Base CPM benchmarks per 1,000 real views
-      let minCPM = 15, maxCPM = 20, platformName = 'TikTok';
-      if (platform === 'instagram') { minCPM = 18; maxCPM = 25; platformName = 'Instagram'; }
-      if (platform === 'youtube') { minCPM = 25; maxCPM = 35; platformName = 'YouTube'; }
+      // Base CPM benchmarks for last 12 posts formula
+      let baseCPM = 12;
+      if (platform === 'instagram') baseCPM = 16;
+      if (platform === 'youtube') baseCPM = 25;
 
-      // Story format is ~35% of dedicated video value
-      let formatLabel = 'Dedicated Video';
-      if (format === 'story') {
-        minCPM = Math.round(minCPM * 0.35);
-        maxCPM = Math.round(maxCPM * 0.35);
-        formatLabel = '24h Story';
-      }
+      // Format & Niche multipliers
+      if (format === 'story') baseCPM *= 0.35;
+      if (format === 'beauty') baseCPM *= 1.2; // Higher engagement niche
+      if (format === 'tech') baseCPM *= 1.3;
+
+      const minCPM = Math.round(baseCPM);
+      const maxCPM = Math.round(baseCPM * 1.4);
 
       const minRate = Math.max(25, Math.round((views / 1000) * minCPM));
       const maxRate = Math.max(40, Math.round((views / 1000) * maxCPM));
       lastCalculatedRate = `$${minRate} – $${maxRate}`;
 
       document.getElementById('rateRangeText').innerText = lastCalculatedRate;
-      document.getElementById('rateExplanation').innerText =
-        `Based on ${views.toLocaleString()} real views × $${minCPM}–$${maxCPM} ${platformName} ${formatLabel} CPM benchmark (protects you from paying for inactive followers).`;
+      
+      const t = translations[currentLang];
+      if(currentLang === 'ar') {
+        document.getElementById('rateExplanation').innerText = `بناءً على متوسط مشاهدات آخر 12 منشور (${views.toLocaleString()}) × معيار الـ CPM ومعامل التفاعل (يحمي ميزانيتك من المتابعين الوهميين).`;
+      } else {
+        document.getElementById('rateExplanation').innerText = `Based on last 12 posts average views (${views.toLocaleString()}) × Platform CPM & ER Multiplier benchmark (protects budget from fake followers).`;
+      }
     }
 
     function generatePitch() {
       if (credits <= 0) {
-        openCheckoutModal('Unlock Unlimited Pitches ($39/mo)');
+        openCheckoutModal(currentLang === 'ar' ? 'فتح المحاولات غير المحدودة ($39)' : 'Unlock Unlimited Pitches ($39/mo)');
         return;
       }
 
-      const brand = document.getElementById('brandInput').value.trim() || 'our brand';
+      const brand = document.getElementById('brandInput').value.trim() || (currentLang === 'ar' ? 'متجرنا' : 'our brand');
       let handle = document.getElementById('handleInput').value.trim() || '@creator';
       if (!handle.startsWith('@')) handle = '@' + handle;
       const dealType = document.getElementById('dealTypeInput').value;
 
       let script = '';
-      if (dealType === 'gifted') {
-        script = `Hey ${handle}! Love your recent content—your audience engagement stands out.\n\nWe'd love to send you a complimentary VIP package from ${brand} this week with zero obligation, plus set you up with a 20% recurring affiliate commission if you love it.\n\nWhere is the best address to ship your package?`;
-      } else if (dealType === 'paid') {
-        script = `Hey ${handle}! We've been following your channel and think your style fits ${brand} perfectly.\n\nBased on your recent view averages, we have a campaign budget around ${lastCalculatedRate} for a dedicated integration this month.\n\nAre you open to receiving the brief?`;
+      if (currentLang === 'ar') {
+        if (dealType === 'gifted') {
+          script = `أهلاً ${handle}! أعجبنا محتواك الأخير وتفاعل متابعيك العالي.\n\nنود إرسال باقة VIP مجانية من منتجات ${brand} هذا الأسبوع بدون أي التزام، بالإضافة إلى منحك عمولة أرباح 20% متكررة إذا أعجبك المنتج.\n\nما هو العنوان الأنسب لشحن الهدية؟`;
+        } else if (dealType === 'paid') {
+          script = `أهلاً ${handle}! كنا نتابع قناتك ونرى أن أسلوبك يناسب ${brand} تماماً.\n\nبناءً على متوسط مشاهداتك، لدينا ميزانية حملة تقارب ${lastCalculatedRate} لإعلان فيديو مخصص هذا الشهر.\n\nهل أنت مستعد لاستلام تفاصيل الوجيز (Brief)؟`;
+        } else {
+          script = `أهلاً ${handle}! معجبون بمحتواك. في ${brand} نحب بناء شراكات طويلة الأمد مع المبتكرين.\n\nنقترح شراكة هجينة: مبلغ أساسي مضمون + 20% عمولة أداء لتكون أرباحك غير محدودة.\n\nهل أنت منفتح لمناقشة التفاصيل؟`;
+        }
       } else {
-        script = `Hey ${handle}! Huge fan of your content. At ${brand}, we love building long-term creator partnerships.\n\nWe'd like to propose a hybrid partnership: a guaranteed base fee + 20% performance commission so your upside is uncapped.\n\nWould you be open to a quick chat about details?`;
+        if (dealType === 'gifted') {
+          script = `Hey ${handle}! Love your recent content—your audience engagement stands out.\n\nWe'd love to send you a complimentary VIP package from ${brand} this week with zero obligation, plus set you up with a 20% recurring affiliate commission if you love it.\n\nWhere is the best address to ship your package?`;
+        } else if (dealType === 'paid') {
+          script = `Hey ${handle}! We've been following your channel and think your style fits ${brand} perfectly.\n\nBased on your recent view averages, we have a campaign budget around ${lastCalculatedRate} for a dedicated integration this month.\n\nAre you open to receiving the brief?`;
+        } else {
+          script = `Hey ${handle}! Huge fan of your content. At ${brand}, we love building long-term creator partnerships.\n\nWe'd like to propose a hybrid partnership: a guaranteed base fee + 20% performance commission so your upside is uncapped.\n\nWould you be open to a quick chat about details?`;
+        }
       }
 
       document.getElementById('pitchText').innerText = script;
@@ -385,7 +591,7 @@
 
     function addDealToCRM(handle, rate) {
       dealCounter++;
-      document.getElementById('dealCountBadge').innerText = `${dealCounter} Active`;
+      document.getElementById('dealCountBadge').innerText = `${dealCounter} ${currentLang === 'ar' ? 'نشط' : 'Active'}`;
       const crmList = document.getElementById('crmList');
 
       const item = document.createElement('div');
@@ -393,16 +599,16 @@
       item.innerHTML = `
         <div>
           <div class="text-sm font-bold text-white">${handle}</div>
-          <div class="text-xs text-slate-400">Est. Fair Rate: ${rate}</div>
+          <div class="text-xs text-slate-400">${currentLang === 'ar' ? 'السعر العادل المقدر:' : 'Est. Fair Rate:'} ${rate}</div>
         </div>
         <div class="flex items-center gap-2">
           <select onchange="updateDealStatus(this)" class="bg-slate-800 border border-slate-700 text-xs text-amber-300 rounded-lg px-2 py-1 focus:outline-none">
-            <option value="Contacted" selected>Contacted</option>
-            <option value="Negotiating">Negotiating</option>
-            <option value="Closed Won">Closed Won</option>
+            <option value="Contacted" selected>${currentLang === 'ar' ? 'تم التواصل' : 'Contacted'}</option>
+            <option value="Negotiating">${currentLang === 'ar' ? 'قيد التفاوض' : 'Negotiating'}</option>
+            <option value="Closed Won">${currentLang === 'ar' ? 'تم الاتفاق' : 'Closed Won'}</option>
           </select>
           <button onclick="generateFollowUp('${handle}')" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition">
-            Follow-Up
+            ${currentLang === 'ar' ? 'متابعة' : 'Follow-Up'}
           </button>
         </div>
       `;
@@ -417,8 +623,11 @@
     }
 
     function generateFollowUp(handle) {
-      const brand = document.getElementById('brandInput').value.trim() || 'our team';
-      const followUpScript = `Hey ${handle}, just bumping this up in your inbox! Would love to lock in our ${brand} collaboration spot for this week before our campaign roster closes. Let me know what you think!`;
+      const brand = document.getElementById('brandInput').value.trim() || (currentLang === 'ar' ? 'فريقنا' : 'our team');
+      const followUpScript = currentLang === 'ar' 
+        ? `أهلاً ${handle}، أردت فقط إعادة إرسال الرسالة لتذكيرك! نود حجز خانة تعاوننا مع ${brand} لهذا الأسبوع قبل إغلاق قائمة الحملة. أخبرني برأيك!`
+        : `Hey ${handle}, just bumping this up in your inbox! Would love to lock in our ${brand} collaboration spot for this week before our campaign roster closes. Let me know what you think!`;
+      
       document.getElementById('pitchText').innerText = followUpScript;
       document.getElementById('pitchOutputContainer').classList.remove('hidden');
       document.getElementById('pitchOutputContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -428,8 +637,9 @@
       const text = document.getElementById('pitchText').innerText;
       navigator.clipboard.writeText(text);
       const btn = document.getElementById('copyBtn');
-      btn.innerText = 'Copied!';
-      setTimeout(() => btn.innerText = 'Copy Text', 2000);
+      const originalText = btn.innerText;
+      btn.innerText = currentLang === 'ar' ? 'تم النسخ!' : 'Copied!';
+      setTimeout(() => btn.innerText = originalText, 2000);
     }
 
     function openCheckoutModal(planTitle) {
