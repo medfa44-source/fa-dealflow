@@ -1,235 +1,445 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FA DealFlow | AI Micro-Influencer Outreach & CRM</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FA DealFlow — AI Influencer CRM & Fair-Rate Engine</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #0B0F19; color: #F8FAFC; }
+    .glass-card { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); backdrop-filter: blur(12px); }
+    .gradient-text { background: linear-gradient(135deg, #60A5FA 0%, #818CF8 50%, #34D399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
 </head>
-<body class="bg-slate-900 text-white font-sans antialiased">
+<body class="antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- Navbar -->
-    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-lg">FA</div>
-                <span class="text-xl font-bold tracking-tight">FA <span class="text-indigo-400">DealFlow</span></span>
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 glass-card border-b border-slate-800/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center font-extrabold text-white tracking-tight shadow-lg shadow-indigo-500/30">FA</div>
+        <span class="font-bold text-lg tracking-tight text-white">FA DealFlow</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-300 font-medium">
+        <a href="#workspace" class="hover:text-white transition">Deal Workspace</a>
+        <a href="#pricing" class="hover:text-white transition">Pricing</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </div>
+      <a href="#pricing" class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-md shadow-indigo-600/20">
+        Get Pro Access
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="max-w-5xl mx-auto px-4 sm:px-6 pt-14 pb-12 text-center">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-semibold tracking-wide uppercase mb-6">
+      <span>⚡ Complete Influencer Decision & CRM Workflow</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+      Stop Overpaying Creators. <br class="hidden sm:block" />
+      <span class="gradient-text">Price, Pitch & Track Deals</span> in Seconds.
+    </h1>
+    <p class="max-w-2xl mx-auto text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
+      More than an AI writer—an all-in-one deal engine for smart e-commerce brands. Audit creator views to prevent fake-follower overpricing, generate tailored outreach pitches, and manage follow-ups in one workflow.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#workspace" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-base transition shadow-lg shadow-indigo-600/30">
+        Try Free Workspace (<span id="heroCredits">3</span> Credits)
+      </a>
+      <a href="#pricing" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-800/90 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-base transition">
+        View Plans
+      </a>
+    </div>
+  </header>
+
+  <!-- Interactive Workspace -->
+  <main id="workspace" class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Left Column: AI Pitch Generator (6 cols) -->
+      <section class="lg:col-span-6 glass-card rounded-2xl p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>✍️</span> AI Pitch & Negotiation Engine
+            </h2>
+            <span id="creditBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+              3 Free Tries Left
+            </span>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Your Brand / Product Name</label>
+              <input id="brandInput" type="text" placeholder="e.g., Aura Perfumes" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
             </div>
-            <div class="hidden md:flex space-x-6 text-sm text-slate-300">
-                <a href="#tool" class="hover:text-white transition">AI Generator</a>
-                <a href="#calculator" class="hover:text-white transition">Price Calculator</a>
-                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Creator Handle (@)</label>
+                <input id="handleInput" type="text" placeholder="e.g., @sarah.style" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Deal Structure</label>
+                <select id="dealTypeInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500">
+                  <option value="gifted">Free Product + Affiliate %</option>
+                  <option value="paid">Paid Flat-Rate Sponsorship</option>
+                  <option value="hybrid">Hybrid (Low Base + Commission)</option>
+                </select>
+              </div>
             </div>
-            <a href="#pricing" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition">Get Pro Access</a>
+
+            <button onclick="generatePitch()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-md shadow-indigo-600/25">
+              ⚡ Generate Pitch & Add to CRM
+            </button>
+          </div>
+
+          <!-- Output Box -->
+          <div id="pitchOutputContainer" class="hidden mt-5 p-4 rounded-xl bg-slate-900/95 border border-slate-700/80">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-semibold text-indigo-400">Ready-to-Send DM Script</span>
+              <button onclick="copyPitch()" id="copyBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-2.5 py-1 rounded-md transition">
+                Copy Text
+              </button>
+            </div>
+            <pre id="pitchText" class="whitespace-pre-wrap text-xs sm:text-sm text-slate-200 font-sans leading-relaxed"></pre>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="max-w-4xl mx-auto text-center px-4 py-16">
-        <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">AI-Powered Influencer CRM</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold mt-6 leading-tight">
-            Close High-Converting <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Influencer Deals</span> in Seconds.
-        </h1>
-        <p class="text-slate-400 text-lg mt-6 max-w-2xl mx-auto">
-            Stop wasting hours writing cold DMs that get ignored. Paste any influencer handle, calculate their fair rate, and generate high-converting negotiation pitches instantly.
+        <p class="text-xs text-slate-500 mt-5 pt-3 border-t border-slate-800/80">
+          💡 Tip: Every generated pitch automatically logs the creator into your Mini-CRM tracker on the right.
         </p>
-        <div class="mt-8 flex justify-center gap-4">
-            <a href="#tool" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-xl font-semibold shadow-lg shadow-indigo-600/30 transition">Try Free Demo (3 Credits)</a>
-            <a href="#pricing" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-3 rounded-xl font-semibold border border-slate-700 transition">View Plans</a>
-        </div>
-    </header>
+      </section>
 
-    <!-- Main Interactive Workspace -->
-    <section id="tool" class="max-w-5xl mx-auto px-4 py-10">
-        <div class="grid md:grid-cols-2 gap-8">
-            
-            <!-- Left: AI Outreach Generator -->
-            <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 shadow-xl">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-xl font-bold flex items-center gap-2"><i class="fas fa-magic text-indigo-400"></i> AI Pitch Generator</h2>
-                    <span id="creditsBadge" class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full">3 Free Tries Left</span>
-                </div>
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-1">Your Brand / Product Name</label>
-                        <input id="brandName" type="text" placeholder="e.g., Aura Perfumes" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-1">Influencer Handle (@username)</label>
-                        <input id="influencerHandle" type="text" placeholder="e.g., @sarah.lifestyle" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs text-slate-400 mb-1">Offer Type</label>
-                        <select id="offerType" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-indigo-500">
-                            <option value="gifted">Free Product + Affiliate Commission</option>
-                            <option value="paid">Paid Sponsored Post / Reel</option>
-                            <option value="ambassador">Long-Term Brand Ambassador</option>
-                        </select>
-                    </div>
-                    <button onclick="generatePitch()" class="w-full bg-indigo-600 hover:bg-indigo-500 py-2.5 rounded-lg font-semibold text-sm transition flex items-center justify-center gap-2">
-                        <i class="fas fa-bolt"></i> Generate 3 Negotiation Messages
-                    </button>
-                </div>
+      <!-- Right Column: Fair-Rate Engine + Mini CRM (6 cols) -->
+      <div class="lg:col-span-6 space-y-6">
 
-                <!-- Output Box -->
-                <div id="outputContainer" class="mt-6 hidden">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-semibold text-indigo-400 uppercase">Generated Outreach Pitch</span>
-                        <button onclick="copyPitch()" class="text-xs bg-slate-700 hover:bg-slate-600 px-2 py-1 rounded text-slate-200"><i class="fas fa-copy"></i> Copy</button>
-                    </div>
-                    <textarea id="pitchResult" rows="6" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-xs text-slate-300 leading-relaxed focus:outline-none"></textarea>
-                </div>
+        <!-- Fair-Rate Calculator (Views + Platform + Format) -->
+        <section class="glass-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>📊</span> Data-Backed Fair-Rate Engine
+            </h2>
+            <span class="text-xs text-slate-400 bg-slate-800 px-2.5 py-1 rounded-md">CPM Audit</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Avg. Views (30d)</label>
+              <input id="viewsInput" type="number" placeholder="25000" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500" />
             </div>
-
-            <!-- Right: Fair Rate Calculator & Mini CRM -->
-            <div class="space-y-8">
-                <!-- Rate Calculator -->
-                <div id="calculator" class="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 shadow-xl">
-                    <h2 class="text-xl font-bold flex items-center gap-2 mb-4"><i class="fas fa-calculator text-cyan-400"></i> Fair Rate Calculator</h2>
-                    <div class="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Followers Count</label>
-                            <input id="followers" type="number" placeholder="e.g., 25000" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm">
-                        </div>
-                        <div>
-                            <label class="block text-xs text-slate-400 mb-1">Avg. Likes per Post</label>
-                            <input id="likes" type="number" placeholder="e.g., 1200" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm">
-                        </div>
-                    </div>
-                    <button onclick="calculateRate()" class="w-full bg-slate-700 hover:bg-slate-600 py-2 rounded-lg font-semibold text-sm transition">Calculate Fair Deal Price</button>
-                    <div id="rateResult" class="mt-4 p-3 bg-slate-900/80 border border-slate-700 rounded-lg text-center hidden">
-                        <p class="text-xs text-slate-400">Recommended Max Offer:</p>
-                        <p id="priceDisplay" class="text-2xl font-extrabold text-cyan-400 mt-1">$0</p>
-                        <p id="engagementDisplay" class="text-xs text-slate-400 mt-1"></p>
-                    </div>
-                </div>
-
-                <!-- Mini Deal Tracker CRM -->
-                <div class="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 shadow-xl">
-                    <h2 class="text-lg font-bold flex items-center gap-2 mb-3"><i class="fas fa-columns text-emerald-400"></i> Quick Deal Tracker</h2>
-                    <div id="crmList" class="space-y-2 text-xs text-slate-300">
-                        <div class="p-2.5 bg-slate-900 rounded-lg flex justify-between items-center border border-slate-800">
-                            <span>@alex.fitness (Sample)</span>
-                            <span class="bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded">Negotiating</span>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Platform</label>
+              <select id="platformInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+                <option value="tiktok">TikTok</option>
+                <option value="instagram">Instagram</option>
+                <option value="youtube">YouTube</option>
+              </select>
             </div>
-
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="max-w-5xl mx-auto px-4 py-16 border-t border-slate-800">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold">Simple, Transparent Pricing</h2>
-            <p class="text-slate-400 text-sm mt-2">Upgrade anytime to unlock unlimited AI negotiations and full CRM power.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-            <!-- Starter Plan -->
-            <div class="bg-slate-800/40 border border-slate-700 rounded-2xl p-8 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-lg font-semibold text-slate-300">Starter Plan</h3>
-                    <div class="mt-4 flex items-baseline">
-                        <span class="text-4xl font-extrabold">$39</span>
-                        <span class="text-slate-400 ml-1">/month</span>
-                    </div>
-                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> 50 AI Negotiation Pitches / mo</li>
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Basic Fair Rate Calculator</li>
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Save up to 20 Influencers in CRM</li>
-                    </ul>
-                </div>
-                <button onclick="alert('Redirecting to Lemon Squeezy Checkout ($39/mo)...')" class="mt-8 w-full bg-slate-700 hover:bg-slate-600 py-3 rounded-xl font-semibold text-sm transition">Start with Starter</button>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Deliverable</label>
+              <select id="formatInput" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-indigo-500">
+                <option value="video">Dedicated Video / Reel</option>
+                <option value="story">24h Story / Mention</option>
+              </select>
             </div>
+          </div>
 
-            <!-- Pro Plan -->
-            <div class="bg-gradient-to-b from-indigo-900/40 to-slate-800/40 border-2 border-indigo-500 rounded-2xl p-8 flex flex-col justify-between relative">
-                <span class="absolute -top-3 right-6 bg-indigo-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Most Popular</span>
-                <div>
-                    <h3 class="text-lg font-semibold text-indigo-300">Pro Growth</h3>
-                    <div class="mt-4 flex items-baseline">
-                        <span class="text-4xl font-extrabold">$59</span>
-                        <span class="text-slate-400 ml-1">/month</span>
-                    </div>
-                    <ul class="mt-6 space-y-3 text-sm text-slate-300">
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> <strong>Unlimited</strong> AI Negotiation Pitches</li>
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Fake Follower & Engagement Detector</li>
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Objection Handling Scripts</li>
-                        <li><i class="fas fa-check text-indigo-400 mr-2"></i> Instant Contract Generator</li>
-                    </ul>
-                </div>
-                <button onclick="alert('Redirecting to Lemon Squeezy Checkout ($59/mo)...')" class="mt-8 w-full bg-indigo-600 hover:bg-indigo-500 py-3 rounded-xl font-semibold text-sm shadow-lg shadow-indigo-600/30 transition">Get Pro Access</button>
+          <button onclick="calculateFairRate()" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition shadow-md shadow-emerald-600/20">
+            Calculate Transparent Fair Rate
+          </button>
+
+          <!-- Rate Result & Transparent Breakdown -->
+          <div id="rateResultBox" class="mt-4 p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+            <div class="text-xs text-slate-400 uppercase tracking-wider mb-1">Recommended Max Offer Range</div>
+            <div id="rateRangeText" class="text-2xl sm:text-3xl font-extrabold text-emerald-400">$375 – $500</div>
+            <div id="rateExplanation" class="text-xs text-slate-400 mt-2 leading-relaxed">
+              Based on 25,000 real views × $15–$20 TikTok Video CPM benchmark (protects you from paying for inactive followers).
             </div>
+          </div>
+        </section>
+
+        <!-- Mini-CRM Deal Tracker with Status & Follow-up -->
+        <section class="glass-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-white flex items-center gap-2">
+              <span>🗂️</span> Active Deal Pipeline (CRM)
+            </h2>
+            <span id="dealCountBadge" class="text-xs text-indigo-300 bg-indigo-500/15 px-2.5 py-1 rounded-full font-medium">1 Active</span>
+          </div>
+
+          <div id="crmList" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+            <!-- Sample Initial Item -->
+            <div class="flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div>
+                <div class="text-sm font-bold text-white">@maya.glow <span class="text-xs font-normal text-slate-400">(Sample)</span></div>
+                <div class="text-xs text-slate-400">Est. Fair Rate: $400</div>
+              </div>
+              <div class="flex items-center gap-2">
+                <select onchange="updateDealStatus(this)" class="bg-slate-800 border border-slate-700 text-xs text-amber-300 rounded-lg px-2 py-1 focus:outline-none">
+                  <option value="Contacted" selected>Contacted</option>
+                  <option value="Negotiating">Negotiating</option>
+                  <option value="Closed Won">Closed Won</option>
+                </select>
+                <button onclick="generateFollowUp('@maya.glow')" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition">
+                  Follow-Up
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="max-w-5xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-extrabold text-white mb-3">Simple, ROI-Focused Pricing</h2>
+      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+        Enterprise tools charge $300+/mo. Save yourself from overpaying just one influencer and FA DealFlow pays for itself 10x over.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <!-- Starter Plan -->
+      <div class="glass-card rounded-2xl p-8 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-semibold text-indigo-400 uppercase tracking-wider mb-2">Brand Starter</div>
+          <div class="flex items-baseline gap-1 mb-4">
+            <span class="text-4xl font-extrabold text-white">$39</span>
+            <span class="text-slate-400 text-sm">/ month</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-6">Everything a growing e-commerce store needs to run profitable creator campaigns.</p>
+          <ul class="space-y-3 text-sm text-slate-300 mb-8">
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited AI Pitch & Follow-Up Generation</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited CPM Fair-Rate Audits</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Track up to 100 Active Creator Deals</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Negotiation Counter-Offer Scripts</li>
+          </ul>
         </div>
-    </section>
+        <button onclick="openCheckoutModal('Brand Starter ($39/mo)')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold text-sm transition">
+          Start with Brand Starter
+        </button>
+      </div>
 
-    <footer class="text-center py-8 text-xs text-slate-500 border-t border-slate-800">
-        &copy; 2026 FA DealFlow. Built by Mohamed FA. All rights reserved.
-    </footer>
+      <!-- Agency / Pro Plan -->
+      <div class="glass-card rounded-2xl p-8 border-indigo-500/60 relative flex flex-col justify-between shadow-xl shadow-indigo-950/30">
+        <div class="absolute -top-3 right-6 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+          Most Popular
+        </div>
+        <div>
+          <div class="text-sm font-semibold text-emerald-400 uppercase tracking-wider mb-2">Growth & Agency Pro</div>
+          <div class="flex items-baseline gap-1 mb-4">
+            <span class="text-4xl font-extrabold text-white">$59</span>
+            <span class="text-slate-400 text-sm">/ month</span>
+          </div>
+          <p class="text-slate-400 text-sm mb-6">Built for high-volume brands and agencies managing multiple product lines.</p>
+          <ul class="space-y-3 text-sm text-slate-300 mb-8">
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Everything in Brand Starter</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Unlimited CRM Pipeline Storage</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Multi-Brand Campaign Presets</li>
+            <li class="flex items-center gap-2.5"><span class="text-emerald-400">✓</span> Priority Direct Founder Support</li>
+          </ul>
+        </div>
+        <button onclick="openCheckoutModal('Growth & Agency Pro ($59/mo)')" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition shadow-lg shadow-indigo-600/30">
+          Upgrade to Growth Pro
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Interactive Logic -->
-    <script>
-        let credits = 3;
+  <!-- FAQ Section -->
+  <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 py-12 border-t border-slate-800/80">
+    <h2 class="text-2xl font-extrabold text-white text-center mb-8">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <div class="glass-card rounded-xl p-5">
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">How is this different from just using ChatGPT?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          ChatGPT doesn't audit creator views against live platform CPM benchmarks or manage your outreach pipeline. FA DealFlow combines rate protection, tailored negotiation psychology, and deal-stage tracking in one fast workflow built specifically for e-commerce outreach.
+        </p>
+      </div>
+      <div class="glass-card rounded-xl p-5">
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">How do you calculate the creator's Fair Rate?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Follower counts can easily be faked. Our engine uses the creator's real 30-day average views, platform benchmark CPMs (TikTok, Instagram, YouTube), and deliverable format (Dedicated Video vs. Story) to give you an objective maximum offer range.
+        </p>
+      </div>
+      <div class="glass-card rounded-xl p-5">
+        <h3 class="font-bold text-white text-sm sm:text-base mb-1.5">Can I cancel my subscription anytime?</h3>
+        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+          Yes, 100%. There are no long-term contracts—you can cancel or switch plans with a single click whenever you want.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        function generatePitch() {
-            if (credits <= 0) {
-                alert("You have used your 3 free trial credits! Please upgrade to Starter ($39) or Pro ($59) to continue.");
-                document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
-                return;
-            }
+  <!-- Footer & Support -->
+  <footer class="border-t border-slate-800/80 py-8 mt-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div>© 2026 FA DealFlow by Mohamed FA. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <a href="mailto:support@fadealflow.com?subject=FA%20DealFlow%20Support" class="text-indigo-400 hover:text-indigo-300 font-semibold transition">
+          💬 Need Help? Contact Support
+        </a>
+      </div>
+    </div>
+  </footer>
 
-            const brand = document.getElementById('brandName').value || "our brand";
-            const handle = document.getElementById('influencerHandle').value || "@creator";
-            const offer = document.getElementById('offerType').value;
+  <!-- Early Access Checkout Modal (Placeholder until Payment Link is Ready) -->
+  <div id="checkoutModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-md w-full rounded-2xl p-6 text-center border-indigo-500/50">
+      <div class="w-12 h-12 rounded-full bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 text-xl">🚀</div>
+      <h3 id="modalPlanTitle" class="text-lg font-bold text-white mb-2">Brand Starter ($39/mo)</h3>
+      <p class="text-slate-300 text-sm mb-5 leading-relaxed">
+        We are currently onboarding our first batch of founding brands. Click below to request instant Pro activation via email and lock in early-bird pricing.
+      </p>
+      <div class="flex flex-col gap-2.5">
+        <a id="modalMailLink" href="mailto:support@fadealflow.com?subject=Activate%20Pro%20Access" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition">
+          Request Instant Activation
+        </a>
+        <button onclick="closeCheckoutModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
 
-            credits--;
-            document.getElementById('creditsBadge').innerText = `${credits} Free Tries Left`;
+  <!-- Interactive Logic -->
+  <script>
+    let credits = parseInt(localStorage.getItem('fa_credits') || '3');
+    let lastCalculatedRate = '$375 – $500';
+    let dealCounter = 1;
 
-            let offerText = "sending you our flagship product for free plus a 20% affiliate commission on every sale";
-            if (offer === "paid") offerText = "a paid sponsorship for 1 dedicated Reel/TikTok";
-            if (offer === "ambassador") offerText = "an exclusive monthly brand ambassador partnership";
+    function updateCreditUI() {
+      document.getElementById('heroCredits').innerText = credits;
+      const badge = document.getElementById('creditBadge');
+      if (credits > 0) {
+        badge.innerText = `${credits} Free ${credits === 1 ? 'Try' : 'Tries'} Left`;
+      } else {
+        badge.innerText = '0 Free Tries Left';
+        badge.className = 'text-xs font-semibold px-3 py-1 rounded-full bg-rose-500/15 text-rose-300 border border-rose-500/30';
+      }
+    }
+    updateCreditUI();
 
-            const pitch = `--- MESSAGE 1: INITIAL HOOK ---\nHey ${handle}! Love your recent content—your style aligns perfectly with ${brand}. We'd love to collaborate with you on ${offerText}. Open to seeing the details?\n\n--- MESSAGE 2: 48-HOUR FOLLOW UP ---\nHey ${handle}, just bumping this up! Would love to get a package out to you this week if you're open to collaborating with ${brand}.\n\n--- NEGOTIATION TIP ---\nIf they ask for a high flat fee, reply: "We'd love to test performance first with a hybrid deal (base + 20% commission) so you have unlimited upside!"`;
+    function calculateFairRate() {
+      const views = parseFloat(document.getElementById('viewsInput').value) || 25000;
+      const platform = document.getElementById('platformInput').value;
+      const format = document.getElementById('formatInput').value;
 
-            document.getElementById('pitchResult').value = pitch;
-            document.getElementById('outputContainer').classList.remove('hidden');
+      // Base CPM benchmarks per 1,000 real views
+      let minCPM = 15, maxCPM = 20, platformName = 'TikTok';
+      if (platform === 'instagram') { minCPM = 18; maxCPM = 25; platformName = 'Instagram'; }
+      if (platform === 'youtube') { minCPM = 25; maxCPM = 35; platformName = 'YouTube'; }
 
-            // Add to CRM
-            const crm = document.getElementById('crmList');
-            const item = document.createElement('div');
-            item.className = "p-2.5 bg-slate-900 rounded-lg flex justify-between items-center border border-slate-800";
-            item.innerHTML = `<span>${handle}</span><span class="bg-indigo-500/10 text-indigo-400 px-2 py-0.5 rounded">Pitch Ready</span>`;
-            crm.prepend(item);
-        }
+      // Story format is ~35% of dedicated video value
+      let formatLabel = 'Dedicated Video';
+      if (format === 'story') {
+        minCPM = Math.round(minCPM * 0.35);
+        maxCPM = Math.round(maxCPM * 0.35);
+        formatLabel = '24h Story';
+      }
 
-        function copyPitch() {
-            const copyText = document.getElementById("pitchResult");
-            copyText.select();
-            document.execCommand("copy");
-            alert("Pitch copied to clipboard!");
-        }
+      const minRate = Math.max(25, Math.round((views / 1000) * minCPM));
+      const maxRate = Math.max(40, Math.round((views / 1000) * maxCPM));
+      lastCalculatedRate = `$${minRate} – $${maxRate}`;
 
-        function calculateRate() {
-            const followers = parseFloat(document.getElementById('followers').value) || 0;
-            const likes = parseFloat(document.getElementById('likes').value) || 0;
+      document.getElementById('rateRangeText').innerText = lastCalculatedRate;
+      document.getElementById('rateExplanation').innerText =
+        `Based on ${views.toLocaleString()} real views × $${minCPM}–$${maxCPM} ${platformName} ${formatLabel} CPM benchmark (protects you from paying for inactive followers).`;
+    }
 
-            if (followers === 0) {
-                alert("Please enter the followers count.");
-                return;
-            }
+    function generatePitch() {
+      if (credits <= 0) {
+        openCheckoutModal('Unlock Unlimited Pitches ($39/mo)');
+        return;
+      }
 
-            const engRate = ((likes / followers) * 100).toFixed(2);
-            let basePrice = (followers / 1000) * 10;
-            if (engRate > 4) basePrice *= 1.3;
-            if (engRate < 1) basePrice *= 0.5;
+      const brand = document.getElementById('brandInput').value.trim() || 'our brand';
+      let handle = document.getElementById('handleInput').value.trim() || '@creator';
+      if (!handle.startsWith('@')) handle = '@' + handle;
+      const dealType = document.getElementById('dealTypeInput').value;
 
-            document.getElementById('priceDisplay').innerText = `$${Math.round(basePrice)} - $${Math.round(basePrice * 1.25)}`;
-            document.getElementById('engagementDisplay').innerText = `Engagement Rate: ${engRate}% (${engRate > 3 ? 'High Quality' : 'Average'})`;
-            document.getElementById('rateResult').classList.remove('hidden');
-        }
-    </script>
+      let script = '';
+      if (dealType === 'gifted') {
+        script = `Hey ${handle}! Love your recent content—your audience engagement stands out.\n\nWe'd love to send you a complimentary VIP package from ${brand} this week with zero obligation, plus set you up with a 20% recurring affiliate commission if you love it.\n\nWhere is the best address to ship your package?`;
+      } else if (dealType === 'paid') {
+        script = `Hey ${handle}! We've been following your channel and think your style fits ${brand} perfectly.\n\nBased on your recent view averages, we have a campaign budget around ${lastCalculatedRate} for a dedicated integration this month.\n\nAre you open to receiving the brief?`;
+      } else {
+        script = `Hey ${handle}! Huge fan of your content. At ${brand}, we love building long-term creator partnerships.\n\nWe'd like to propose a hybrid partnership: a guaranteed base fee + 20% performance commission so your upside is uncapped.\n\nWould you be open to a quick chat about details?`;
+      }
+
+      document.getElementById('pitchText').innerText = script;
+      document.getElementById('pitchOutputContainer').classList.remove('hidden');
+
+      credits--;
+      localStorage.setItem('fa_credits', credits);
+      updateCreditUI();
+
+      addDealToCRM(handle, lastCalculatedRate);
+    }
+
+    function addDealToCRM(handle, rate) {
+      dealCounter++;
+      document.getElementById('dealCountBadge').innerText = `${dealCounter} Active`;
+      const crmList = document.getElementById('crmList');
+
+      const item = document.createElement('div');
+      item.className = 'flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-slate-900/90 border border-indigo-500/40';
+      item.innerHTML = `
+        <div>
+          <div class="text-sm font-bold text-white">${handle}</div>
+          <div class="text-xs text-slate-400">Est. Fair Rate: ${rate}</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <select onchange="updateDealStatus(this)" class="bg-slate-800 border border-slate-700 text-xs text-amber-300 rounded-lg px-2 py-1 focus:outline-none">
+            <option value="Contacted" selected>Contacted</option>
+            <option value="Negotiating">Negotiating</option>
+            <option value="Closed Won">Closed Won</option>
+          </select>
+          <button onclick="generateFollowUp('${handle}')" class="text-xs bg-indigo-600/20 hover:bg-indigo-600/40 text-indigo-300 border border-indigo-500/30 px-2.5 py-1 rounded-lg transition">
+            Follow-Up
+          </button>
+        </div>
+      `;
+      crmList.prepend(item);
+    }
+
+    function updateDealStatus(selectEl) {
+      selectEl.classList.remove('text-amber-300', 'text-sky-300', 'text-emerald-400');
+      if (selectEl.value === 'Contacted') selectEl.classList.add('text-amber-300');
+      if (selectEl.value === 'Negotiating') selectEl.classList.add('text-sky-300');
+      if (selectEl.value === 'Closed Won') selectEl.classList.add('text-emerald-400');
+    }
+
+    function generateFollowUp(handle) {
+      const brand = document.getElementById('brandInput').value.trim() || 'our team';
+      const followUpScript = `Hey ${handle}, just bumping this up in your inbox! Would love to lock in our ${brand} collaboration spot for this week before our campaign roster closes. Let me know what you think!`;
+      document.getElementById('pitchText').innerText = followUpScript;
+      document.getElementById('pitchOutputContainer').classList.remove('hidden');
+      document.getElementById('pitchOutputContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function copyPitch() {
+      const text = document.getElementById('pitchText').innerText;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = 'Copy Text', 2000);
+    }
+
+    function openCheckoutModal(planTitle) {
+      document.getElementById('modalPlanTitle').innerText = planTitle;
+      document.getElementById('checkoutModal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+    }
+  </script>
 </body>
 </html>
